@@ -56,7 +56,7 @@ let todayy = new Date();
 let hourr = todayy.getHours();
 let minutee = todayy.getMinutes();
 
-if ((hourr >= parseInt(sunset_h) && minutee >= parseInt(sunset_m)) || (hourr < parseInt(sunrise_h) && minutee < parseInt(sunrise_m))) {
+if ((hourr == sunset_h && minutee >= sunset_m) || hourr > sunset_h || hour < sunrise_h || (hourr == sunrise_h && minutee < sunrise_m)) {
     enableDark();
 } else {
     disableDark();
