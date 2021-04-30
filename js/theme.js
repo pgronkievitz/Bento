@@ -37,28 +37,4 @@ themeToggle.addEventListener("click", () => {
 // Theme accordint the hour
 
 
-var sunrise, sunset;
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        const splitted = this.response.split(" ");
-        sunrise = splitted[0];
-        sunset = splitted[1];
-    }
-}
-xhttp.open("GET", "https://wttr.in/rzeszow?format=%S%20%s", false);
-xhttp.send();
-
-let [sunrise_h, sunrise_m, ...rest] = sunrise.split(":");
-let [sunset_h, sunset_m, ...restt] = sunset.split(":");
-
-let todayy = new Date();
-let hourr = todayy.getHours();
-let minutee = todayy.getMinutes();
-
-if ((hourr == sunset_h && minutee >= sunset_m) || hourr > sunset_h || hour < sunrise_h || (hourr == sunrise_h && minutee < sunrise_m)) {
-    enableDark();
-} else {
-    disableDark();
-}
-
+enableDark();
